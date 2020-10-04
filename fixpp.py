@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 # a simple program to calculate every users total pp
@@ -30,7 +31,7 @@ class GameMode(IntEnum):
 
     @property
     def dbvalue(self) -> int:
-        return self.value - (4 if self.value >= 4 else 0)
+        return self.value % 4
 
     def __str__(self) -> str:
         return (
