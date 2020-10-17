@@ -81,7 +81,7 @@ async def update_user_pp(user) -> None:
             # user has no scores in this mode.
             continue
 
-        printc(f"Updating {user['name']}'s {gm!r} pp.", Ansi.LIGHT_BLUE)
+        printc(f"Updating {user['name']}'s {gm!r} pp.", Ansi.LBLUE)
 
         # calculate, and update their pp in db.
         total_pp = round(sum(
@@ -100,7 +100,7 @@ async def run() -> None:
     await db.connect(**config.mysql)
 
     users = await db.fetchall('SELECT username name, id FROM users')
-    if not users: return printc('No users found!', Ansi.LIGHT_RED)
+    if not users: return printc('No users found!', Ansi.LRED)
 
     await asyncio.gather(*(update_user_pp(u) for u in users))
 
